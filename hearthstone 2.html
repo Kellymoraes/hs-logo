@@ -1,0 +1,469 @@
+<style>
+	html,body{
+		background-color: #313131;
+		margin: 0px;
+	}
+
+	.hearthstone{
+		width:100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index:10;
+	}
+
+	.quadrado{
+		width: 250px;
+		height: 250px;
+		border:10px solid #AE8635;
+		-webkit-border-radius:20px;
+		-moz-border-radius:20px;
+		display: flex;
+  		justify-content: center;
+  		align-items: center;
+	}
+
+	.quadrado-interno{
+		width: 230px;
+		height: 230px;
+		border:10px solid #865C29;
+		-webkit-border-radius:10px;
+		-moz-border-radius:10px;
+		z-index:50;
+
+	}
+
+	.cantos-externos{
+		width: 230px;
+		height: 230px;
+		border:10px solid #AE8635;
+		-webkit-border-radius:100px 10px 100px 10px;
+		-moz-border-radius:125px 10px 125px 10px;
+		position: relative;
+		right: 10px;
+		bottom:10px;
+		z-index:100;
+	}
+
+	.cantos-internos{
+		width: 230px;
+		height: 230px;
+		border:10px solid #865C29;
+		-webkit-border-radius:125px 10px 125px 10px;
+		-moz-border-radius:125px 10px 125px 10px;
+		position: relative;
+		right: 10px;
+		bottom:10px;
+		z-index:500;
+		
+	}
+
+	.fundo{
+		width: 220px;
+		height: 220px;
+		background-color: #5F79AD;
+		border:5px solid #C0D6F8;
+		-webkit-border-radius:115px 2px 115px 2px;
+		-moz-border-radius:115px 2px 115px 2px; 	
+	}
+
+	.fundo-borda-int{
+		width: 210px;
+		height: 210px;
+		border:5px solid #43506E;
+		-webkit-border-radius:110px 1px 110px 1px;
+		-moz-border-radius:110px 1px 110px 1px; 	
+
+	}
+
+	.meio{
+		width: 260px;
+		/*height: 260px;*/
+		display: flex;
+		flex-direction:column;
+		align-items:center;
+		justify-content:center;	
+		position: relative;
+		right: 25px;
+		bottom:25px;
+	}
+
+	.vertical{
+		width: 80px;
+		height: 260px;
+		display: flex;
+		flex-direction:column;
+		justify-content:space-between;
+		position: relative;
+
+	}
+
+	
+	
+	.triangulo-sup{
+		width: 0;
+		height: 0;
+		border-left:40px solid transparent;
+		border-right:40px solid transparent;
+		border-bottom:80px solid #865C29;
+	
+	}
+
+	.triangulo-sup .luz{
+		width: 0;
+		height: 0;
+		border-bottom: 80px solid #AE8635;
+		border-right: 40px solid transparent;
+		display: flex;
+	}
+
+	.triangulo-inf{
+		margin-top: 0px;
+		width: 0;
+		height: 0;
+		border-left:40px solid transparent;
+		border-right:40px solid transparent;
+		border-top:80px solid #865C29;
+	}
+
+	.triangulo-inf .luz{
+		width: 0;
+		height: 0;
+		border-top: 80px solid #AE8635;
+		border-right: 40px solid transparent;
+		display: flex;
+		position: relative;
+		bottom:80px;
+	}
+
+	.horizontal{
+		width: 260px;
+		height: 80px;
+		display: flex;
+		flex-direction:row;
+		justify-content:space-between;
+		position: relative;
+		bottom:170px;
+	}
+
+	.triangulo-esq{
+		width: 0;
+		height: 0;
+		border-top: 40px solid transparent;
+		border-right: 80px solid #865C29;
+		border-bottom: 40px solid transparent;
+
+}
+
+	.triangulo-esq .luz{
+		width: 0;
+		height: 0;
+		border-right: 80px solid #AE8635;
+		border-bottom: 40px solid transparent;
+		display: flex;
+		}
+
+
+	.triangulo-dir{
+		width: 0;
+		height: 0;
+		border-top: 40px solid transparent;
+		border-left: 80px solid #865C29;
+		border-bottom: 40px solid transparent;
+}
+
+	.triangulo-dir .luz{
+		width: 0;
+		height: 0;
+		border-left: 80px solid #AE8635;
+		border-bottom: 40px solid transparent;
+		display: flex;
+		position: relative;
+		right:80px;
+		}
+
+	.circulo{
+		background-color: #865C29;
+		width: 125px;
+		height: 125px;
+		-webkit-border-radius:100px;
+		border:10px solid #AE8635;
+		position: relative;
+		bottom: 280px
+	}	
+		.circulo-interno{
+			width: 115px;
+			height: 115px;
+			-webkit-border-radius:100px;
+			border:5px solid #63411E;
+		}
+
+	.simbolo{
+		width: 62px;
+		height: 62px;
+		-webkit-border-radius:100px;
+		border:17px solid #44C4FA;
+		position: relative;
+		left: 9px;
+		top: 9px;
+	}
+
+		.elipse{
+		width: 20px;
+		height: 35px;
+		-webkit-border-radius:100px;
+		border:17px solid #44C4FA;
+		position: relative;
+		top: -5px;
+		right: 13.5px;
+		z-index: 100;
+		transform:rotate(-15deg);
+	}
+
+	.semi-circulo{
+		width: 56px;
+		height: 31px;
+		-webkit-border-radius:80px 100px 0px 0px;
+		background-color: #865C29;
+		position: relative;
+		bottom: 69px;
+		left: -3px;
+		transform:rotate(-25deg);
+		z-index: 1000;
+	}
+
+	.retangulo-arredondado{
+		width: 17px;
+		height: 15px;
+		-webkit-border-radius:15px 15px 0px 0px;
+		-moz-border-radius: 15px 15px 0px 0px
+		;
+		background-color: #44C4FA;
+		position: relative;
+		bottom: 130px;
+		left: 21px;
+		transform:rotate(-25deg);
+		z-index: 1000;
+	}
+
+	.retangulo{
+		width: 46px;
+		height: 20px;
+		transform:rotate(-25deg);
+		background-color: #865C29;
+		position: relative;
+		top: -49px;
+		right: 6px;
+	}
+
+	.retangulo-2{
+		width: 53px;
+		height: 25px;
+		transform:rotate(70deg);
+		background-color: #865C29;
+		position: relative;
+		bottom: 94px;
+		right: 33px;
+		-webkit-border-radius:10px;
+	}
+
+	.superior{
+		width: 153px;
+		height: 40px;
+		display:flex;
+		flex-direction:row;
+		align-items:flex-start;
+		justify-content:space-between;
+		position: relative;
+		right: 14px;
+		bottom: 137px;
+	}
+
+		.triangulo-1{
+			width: 0;
+			height: 0;
+			border-left:15px solid transparent;
+			border-right:15px solid transparent;
+			border-bottom:30px solid #865C29;
+			display: flex;
+			flex-direction:column;
+			align-items:center;
+			transform: rotate(-47deg);
+		}
+
+			.triangulo-inf-1{
+				width: 0;
+				height: 0;
+				border-left:15px solid transparent;
+				border-right:15px solid transparent;
+				border-bottom:9px solid #865C29;
+				transform: rotate(180deg);
+				position: relative;
+				top: 29px;
+			}
+
+		.triangulo-2{
+			width: 0;
+			height: 0;
+			border-left:15px solid transparent;
+			border-right:15px solid transparent;
+			border-bottom:30px solid #865C29;
+			display: flex;
+			flex-direction:column;
+			align-items:center;
+			transform: rotate(47deg);		}
+
+			.triangulo-inf-2{
+				width: 0;
+				height: 0;
+				border-left:15px solid transparent;
+				border-right:15px solid transparent;
+				border-bottom:9px solid #865C29;
+				transform: rotate(180deg);
+				position: relative;
+				top:29px;
+			}
+
+	.inferior{
+		width: 153px;
+		display:flex;
+		flex-direction:row;
+		align-items:flex-start;
+		justify-content:space-between;
+		position: relative;
+		right: 14px;
+		bottom: 58px;
+		transform:rotate(180deg);
+	}
+
+			.inferior .triangulo-1{
+			
+			}
+
+			.inferior .triangulo-2{
+
+			}
+
+			.triangulo-1 .luz-1{
+				width: 0;
+				height: 0;
+				border-bottom: 30px solid #AE8635;
+				border-right: 15px solid transparent;
+				position: relative;
+				left: 8px;
+				bottom:9px;
+			}
+
+			.triangulo-2 .luz-2{
+				width: 0;
+				height: 0;
+				border-bottom: 15px solid #AE8635;
+				border-left: 30px solid transparent;
+				position: relative;
+				left: 8px;
+				bottom: 1px;
+				transform:rotate(90deg);
+			}
+
+			.inf-luz-1{
+				width: 0;
+				height: 0;
+				border-bottom: 15px solid #AE8635;
+				border-right: 9px solid transparent;
+				position: relative;
+				right: 12.5px;
+				bottom: 3px;
+				transform:rotate(270deg);
+			}
+
+			.inf-luz-2{
+				width: 0;
+				height: 0;
+				border-bottom: 15px solid #AE8635;
+				border-right: 9px solid transparent;
+				position: relative;
+				right: 12.5px;
+				bottom: 3px;
+				transform:rotate(270deg);
+			}
+</style>
+
+
+
+
+
+<div class="hearthstone">
+	<div class="quadrado">
+		<div class="quadrado-interno">
+			<div class="cantos-externos">
+				<div class="cantos-internos">
+					<div class="fundo">
+						<div class="fundo-borda-int">
+							<div class="meio">
+								<div class="vertical">
+									<div class="triangulo-sup">
+										<div class="luz"></div>
+									</div>	
+									<div class="triangulo-inf">
+										<div class="luz"></div>
+									</div>
+								</div>
+								<div class="horizontal">									
+									<div class="triangulo-esq">
+										<div class="luz"></div>
+									</div>
+									<div class="triangulo-dir">
+										<div class="luz"></div>
+									</div>	
+								</div>	
+								<div class="circulo">
+									<div class="circulo-interno">
+										<div class="simbolo">
+											<div class="elipse"></div>
+											<div class="semi-circulo"></div>
+											<div class="retangulo"></div>
+											<div class="retangulo-2"></div>
+											<div class="retangulo-arredondado"></div>
+										</div>	
+									</div>	
+									<div class="superior">
+										<div class="triangulo-1">
+											<div class="triangulo-inf-1">
+												<div class="inf-luz-1"></div>
+											</div>
+											<div class="luz-1"></div>
+										</div>
+										<div class="triangulo-2">
+											<div class="triangulo-inf-2">
+												<div class="inf-luz-2"></div>
+											</div>
+											<div class="luz-2"></div>
+										</div>
+									</div>
+									<div class="inferior">	
+										<div class="triangulo-1">
+											<div class="triangulo-inf-1">
+												<div class="inf-luz-1"></div>
+											</div>
+											<div class="luz-1"></div>
+										</div>
+										<div class="triangulo-2">
+											<div class="triangulo-inf-2">
+												<div class="inf-luz-2"></div>
+											</div>
+											<div class="luz-2"></div>
+										</div>
+									</div>
+								</div>	
+							</div>	
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div> 
+
+	
+
